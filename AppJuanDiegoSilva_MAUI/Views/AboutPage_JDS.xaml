@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:AppJuanDiegoSilva_MAUI.Models"
+             xmlns:viewModels="clr-namespace:AppJuanDiegoSilva_MAUI.ViewModels"
              x:Class="AppJuanDiegoSilva_MAUI.Views.AboutPage_JDS"
              Title="AboutPage_JDS">
     <ContentPage.BindingContext>
-        <models:About_JDS />
+        <viewModels:AboutViewModel_JDS />
     </ContentPage.BindingContext>
     <VerticalStackLayout Spacing="10" Margin="10">
         <HorizontalStackLayout Spacing="10">
@@ -17,6 +17,6 @@
         </HorizontalStackLayout>
 
         <Label Text="{Binding Message_JDS}" />
-        <Button Text="Learn more..." Clicked="LearnMore_Clicked_JDS" />
+        <Button Text="Learn more..." Command="{Binding ShowMoreInfoCommand_JDS}" />
     </VerticalStackLayout>
 </ContentPage>

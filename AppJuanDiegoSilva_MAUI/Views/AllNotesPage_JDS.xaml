@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AppJuanDiegoSilva_MAUI.ViewModels"
              x:Class="AppJuanDiegoSilva_MAUI.Views.AllNotesPage_JDS"
-             Title="AllNotesPage_JDS">
+             Title="AllNotesPage_JDS"
+             NavigatedTo="ContentPage_NavigatedTo">
+
+    <ContentPage.BindingContext>
+        <viewModels:NotesViewModel_JDS />
+    </ContentPage.BindingContext>
+
+
     <!-- Add an item to the toolbar -->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="Add_Clicked_JDS" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
+        <ToolbarItem Text="Add" Command="{Binding NewCommand_JDS}" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
     </ContentPage.ToolbarItems>
 
     <!-- Display notes in a list -->
     <CollectionView x:Name="notesCollection"
-                        ItemsSource="{Binding Notes}"
+                        ItemsSource="{Binding AllNotes_JDS}"
                         Margin="20"
                         SelectionMode="Single"
-                        SelectionChanged="notesCollection_SelectionChanged">
+                        SelectionChanged="{Binding SelectNoteCommand_JDS}"
+                        SelectionChangedCommandParameter="{Binding  Source={RelativeSource Self}, Path=SelectedItem}">
 
         <!-- Designate how the collection of items are laid out -->
         <CollectionView.ItemsLayout>
