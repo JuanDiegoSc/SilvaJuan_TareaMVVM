@@ -21,7 +21,7 @@
                         ItemsSource="{Binding AllNotes_JDS}"
                         Margin="20"
                         SelectionMode="Single"
-                        SelectionChanged="{Binding SelectNoteCommand_JDS}"
+                        SelectionChangedCommand="{Binding SelectNoteCommand_JDS}"
                         SelectionChangedCommandParameter="{Binding  Source={RelativeSource Self}, Path=SelectedItem}">
 
         <!-- Designate how the collection of items are laid out -->

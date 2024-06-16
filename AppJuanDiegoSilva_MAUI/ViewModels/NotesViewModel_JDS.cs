@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using static Android.Provider.ContactsContract.CommonDataKinds;
 
 namespace AppJuanDiegoSilva_MAUI.ViewModels
 {
@@ -18,9 +17,9 @@ namespace AppJuanDiegoSilva_MAUI.ViewModels
 
         public NotesViewModel_JDS()
         {
-            AllNotes_JDS = new ObservableCollection<ViewModels.NoteViewModel_JDS>(Models.Note_JDS.LoadAll().Select(n => new NoteViewModel_JDS(n)));
+            AllNotes_JDS = new ObservableCollection<NoteViewModel_JDS>(Models.Note_JDS.LoadAll().Select(n => new NoteViewModel_JDS(n)));
             NewCommand_JDS = new AsyncRelayCommand(NewNoteAsync);
-            SelectNoteCommand_JDS = new AsyncRelayCommand<ViewModels.NoteViewModel_JDS>(SelectNoteAsync);
+            SelectNoteCommand_JDS = new AsyncRelayCommand<NoteViewModel_JDS>(SelectNoteAsync);
         }
 
         private async Task NewNoteAsync()
@@ -28,7 +27,7 @@ namespace AppJuanDiegoSilva_MAUI.ViewModels
             await Shell.Current.GoToAsync(nameof(Views.NotePage_JDS));
         }
 
-        private async Task SelectNoteAsync(ViewModels.NoteViewModel_JDS note)
+        private async Task SelectNoteAsync(NoteViewModel_JDS note)
         {
             if (note != null)
                 await Shell.Current.GoToAsync($"{nameof(Views.NotePage_JDS)}?load={note.Identifier_JDS}");

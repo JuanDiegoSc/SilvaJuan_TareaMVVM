@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Android.Provider.ContactsContract.CommonDataKinds;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace AppJuanDiegoSilva_MAUI.Models
