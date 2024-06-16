@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AppJuanDiegoSilva_MAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:AppJuanDiegoSilva_MAUI.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="AppJuanDiegoSilva_MAUI">
+
+    <TabBar>
+        <ShellContent
+            Title="Notes_JDS"
+            ContentTemplate="{DataTemplate views:AllNotesPage_JDS}"
+            Icon="{OnPlatform 'icon_notes_jds.png', iOS='icon_notes_ios_jds.png', MacCatalyst='icon_notes_ios_jds.png'}" />
+
+        <ShellContent
+            Title="About_JDS"
+            ContentTemplate="{DataTemplate views:AboutPage_JDS}"
+            Icon="{OnPlatform 'icon_about_jds.png', iOS='icon_about_ios_jds.png', MacCatalyst='icon_about_ios_jds.png'}" />
+    </TabBar>
+
+</Shell>
